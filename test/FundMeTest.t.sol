@@ -7,12 +7,16 @@ import {DeployFundMe} from "../script/DeployFundMe.s.sol";
 
 contract FundMeTest is Test{
     FundMe fundMe;
+    address USER = makeAddr("user");
+    uint256 constant SEND_VALUE = 100000000000000000; //0.1eth
+    uint256 constant STARTING_BALANCE = 10 ether;
     
 
     function setUp() external{
         // fundMe = new FundMe();
         DeployFundMe deployFundMe = new DeployFundMe();
         fundMe = deployFundMe.run();
+        vm.deal(USER, STARTING_BALANCE);
     
     }
 
@@ -39,6 +43,14 @@ contract FundMeTest is Test{
     }
 
     function testFundUpdatesFundedDataStructures() public {
-        fundMe.fund{value: 7e18}();
+        vm.prank(USER);
+
+        fundMe.fund{value: SEND_VALUE}();
+        uint256 amountFunded = fundMe.getAddressToAmountfunded(USER);
+        assertEq(amountFunded, SEND_VALUE);
+    }
+
+    function testAddsFunderToArrayOfFunder() public {
+        
     }
 }
