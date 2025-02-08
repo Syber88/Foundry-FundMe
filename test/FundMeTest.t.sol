@@ -32,4 +32,13 @@ contract FundMeTest is Test{
             assertEq(version, 4);
         }
     }
+
+    function testFundFailsWithInsufficientFunds()public{
+        vm.expectRevert();
+        fundMe.fund();
+    }
+
+    function testFundUpdatesFundedDataStructures() public {
+        fundMe.fund{value: 7e18}();
+    }
 }
