@@ -1,3 +1,17 @@
+# Foundry Fund Me  
+
+## Introduction  
+
+The **Foundry Fund Me** project is a decentralized crowdfunding smart contract built using **Foundry**, a powerful Ethereum development framework. This project enables users to contribute funds securely and allows the contract owner to withdraw them when needed.  
+
+The repository includes setup instructions, deployment scripts, and testing strategies to ensure the contract's reliability. It also supports integration with **zkSync** for layer-2 scaling, along with gas estimation and best practices for Solidity development.  
+
+This project is part of my ongoing exploration of blockchain development and smart contract engineering. 🚀  
+
+---  
+
+
+
 # Usage
 
 ## Deploy
